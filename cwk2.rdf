@@ -1,2213 +1,289 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8" ?>
 
-
-<!DOCTYPE rdf:RDF [
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-]>
-
-
-<rdf:RDF xmlns="http://docs.staite.net/uni-co7216-cwk1#"
-     xml:base="http://docs.staite.net/uni-co7216-cwk1"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="http://docs.staite.net/uni-co7216-cwk1">
-        <owl:versionInfo rdf:datatype="&xsd;string">Created with TopBraid Composer</owl:versionInfo>
-    </owl:Ontology>
+<rdf:RDF 
+   xmlns="http://docs.staite.net/uni-co7216-cwk2#"
+   xml:base="http://docs.staite.net/uni-co7216-cwk2"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasCorrespondingWebsite">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Newspapers can have a corresponding website online.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#organises">
-        <rdfs:comment rdf:datatype="&xsd;string">An instance of company organises a technology event</rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#builtUsing">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Individual pieces of software can be built using open source components.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasVersion">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A piece of software/device has a particular version number.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Software"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#interviewTo"/>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#editsFor"/>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasLanguage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     Each news item can be written/spoken in one or more languages.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasGBDiskCapacity">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A stock device has a fixed amount of disk capacity.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#newsAbout">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of news can talk about 1 (or more) news subjects.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasCoverage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A newspaper is read by people in a specific region.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#ownsNewsSource">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A company can own (or be the parent company of) a news source.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#develops">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Both a developer and company can develop software.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#builds">
-        <rdfs:comment rdf:datatype="&xsd;string">An instance of company builds a specific device</rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#involvesCompany">
-        <rdfs:comment rdf:datatype="&xsd;string">The company instance is attending the event</rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#takesPlaceIn">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An event takes place in a particular geographical region.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#contributesTo">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A company and a developer can both contribute to some open source software/hardware.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasMBMemoryCapacity">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A stock device has a fixed amount of RAM.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#withinRegion"/>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#isInterestedIn">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A journalist has a particular interest in a specific news subject.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#developsForOS">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Both a developer and company can focus their development efforts on
-    one particular OS/platform.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#isRelevantTo">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A single news item might only be relevant to a particular geographical region.
-    `Global` would be the geographical region representing the entire world.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#involvesPerson">
-        <rdfs:comment rdf:datatype="&xsd;string">The person instance is speaking at the event</rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasTitle">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of news and an event can both have titles.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#connectivityInRegion">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A particular network type/service is available in a specific region.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#pageNo">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of news can have a page number (seen most with newspaper).
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasMainLanguage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     Each region has a first/main language that most people there can speak.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#knowsLanguage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A person can speak/write in one or more languages (particularly relevent for journalists/editors).
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#presentsResearch">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Some research is presented at a specific event
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasHomepage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A news website has a homepage URL.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsWebsite"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#availableInRegion">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Some devices are only available in particular regions. This relationship
-    allows to specify 1 or more regions that the device is available in.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasProcessor">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A stock device has a specific processor.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasSource">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Each item of news has an original source
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#datePublished">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     The date the news item was published.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#basedInRegion">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A company is based in one particular geographical region.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#worksForSource">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Each journalist &quot;works&quot; for at least one source. This includes
-    journalists who &quot;work&quot; for themselves on a blog.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#isAboutLanguage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of programming news can be about a particular programming language.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Programming"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#documentsNews">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A journalist creates news items.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#developsForDevice">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Both a developer and company can focus their development efforts on
-    one particular device.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#sourceURL">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of news can have a source URL (assumse online news)
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#eventDate">
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#researches">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Both a company and a researcher can carry out research
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#providesAccessTo">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A device can provide access to particular network technologies (wifi for example).
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#worksIn"/>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasLength">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     Length of the video in seconds.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Video"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#runByOS">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An application is run (or will run on) by 1 or more operating systems.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#editsNews">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Each news item will be edited by one editor.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasName">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Peope, Software, Languages, Devices and News Sources all have names.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Language"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSource"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#takesPlaceInInstitution">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     Research can take place at a university/organisation.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Research"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#availableInLanguage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A piece of software is available in 1 or more languages.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#isAbout">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A technology event is about (has a presentation about) a particular device or piece of software.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#runsSoftware">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A specific device can only run certain software.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#researchAbout">
-        <rdfs:comment rdf:datatype="&xsd;string">An instance of Research can focus on the areas of Programming, Security, Technology</rdfs:comment>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#livesIn">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A person lives in a particular region.
-    </rdfs:comment>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.w3.org/2001/XMLSchema#date -->
-
-    <rdfs:Datatype rdf:about="&xsd;date"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#availableInLanguage -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#availableInLanguage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A piece of software is available in 1 or more languages.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Language"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Software"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#availableInRegion -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#availableInRegion">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Some devices are only available in particular regions. This relationship
-    allows to specify 1 or more regions that the device is available in.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#basedInRegion -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#basedInRegion">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A company is based in one particular geographical region.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#builds -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#builds">
-        <rdfs:comment rdf:datatype="&xsd;string">An instance of company builds a specific device</rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#builtUsing -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#builtUsing">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Individual pieces of software can be built using open source components.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OpenSource"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Software"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#connectivityInRegion -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#connectivityInRegion">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A particular network type/service is available in a specific region.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Network"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#contributesTo -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#contributesTo">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A company and a developer can both contribute to some open source software/hardware.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Developer"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OpenSource"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#develops -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#develops">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Both a developer and company can develop software.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Developer"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Software"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#developsForDevice -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#developsForDevice">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Both a developer and company can focus their development efforts on
-    one particular device.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Developer"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#developsForOS -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#developsForOS">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Both a developer and company can focus their development efforts on
-    one particular OS/platform.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Developer"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OS"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#documentsNews -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#documentsNews">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A journalist creates news items.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Journalist"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#editsFor -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#editsFor">
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Editor"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsWebsite"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Newspaper"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#editsNews -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#editsNews">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Each news item will be edited by one editor.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Editor"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasCorrespondingWebsite -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasCorrespondingWebsite">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Newspapers can have a corresponding website online.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsWebsite"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Newspaper"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasCoverage -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasCoverage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A newspaper is read by people in a specific region.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Newspaper"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasLanguage -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasLanguage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     Each news item can be written/spoken in one or more languages.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Language"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasMainLanguage -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasMainLanguage">
-        <rdfs:comment rdf:datatype="&xsd;strinDataTypeg">
-     Each region has a first/main language that most people there can speak.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Language"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasSource -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasSource">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Each item of news has an original source
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSource"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#interviewTo -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#interviewTo">
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Interview"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#involvesCompany -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#involvesCompany">
-        <rdfs:comment rdf:datatype="&xsd;string">The company instance is attending the event</rdfs:comment>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#involvesPerson -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#involvesPerson">
-        <rdfs:comment rdf:datatype="&xsd;string">The person instance is speaking at the event</rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#isAbout -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#isAbout">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A technology event is about (has a presentation about) a particular device or piece of software.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Software"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#isInterestedIn -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#isInterestedIn">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A journalist has a particular interest in a specific news subject.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Journalist"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#isRelevantTo -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#isRelevantTo">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A single news item might only be relevant to a particular geographical region.
-    `Global` would be the geographical region representing the entire world.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#knowsLanguage -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#knowsLanguage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A person can speak/write in one or more languages (particularly relevent for journalists/editors).
-    </rdfs:comment>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Language"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#livesIn -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#livesIn">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A person lives in a particular region.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#newsAbout -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#newsAbout">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of news can talk about 1 (or more) news subjects.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#organises -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#organises">
-        <rdfs:comment rdf:datatype="&xsd;string">An instance of company organises a technology event</rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#ownsNewsSource -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#ownsNewsSource">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A company can own (or be the parent company of) a news source.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSource"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#presentsResearch -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#presentsResearch">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Some research is presented at a specific event
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Research"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#providesAccessTo -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#providesAccessTo">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A device can provide access to particular network technologies (wifi for example).
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Network"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#researchAbout -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#researchAbout">
-        <rdfs:comment rdf:datatype="&xsd;string">An instance of Research can focus on the areas of Programming, Security, Technology</rdfs:comment>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Programming"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Research"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Security"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Technology"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#researches -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#researches">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Both a company and a researcher can carry out research
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Research"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Researcher"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#runByOS -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#runByOS">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An application is run (or will run on) by 1 or more operating systems.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#App"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OS"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#runsSoftware -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#runsSoftware">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A specific device can only run certain software.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Software"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#takesPlaceIn -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#takesPlaceIn">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An event takes place in a particular geographical region.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#withinRegion -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#withinRegion">
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#worksForSource -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#worksForSource">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Each journalist &quot;works&quot; for at least one source. This includes
-    journalists who &quot;work&quot; for themselves on a blog.
-    </rdfs:comment>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Journalist"/>
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSource"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#worksIn -->
-
-    <owl:ObjectProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#worksIn">
-        <rdfs:range rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <rdfs:domain rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#datePublished -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#datePublished">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     The date the news item was published.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;date"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#eventDate -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#eventDate">
-        <rdfs:range rdf:resource="&xsd;date"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasGBDiskCapacity -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasGBDiskCapacity">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A stock device has a fixed amount of disk capacity.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;integer"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasHomepage -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasHomepage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    A news website has a homepage URL.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasLength -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasLength">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     Length of the video in seconds.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;integer"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasMBMemoryCapacity -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasMBMemoryCapacity">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A stock device has a fixed amount of RAM.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;integer"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasName -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasName">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    Peope, Software, Languages, Devices and News Sources all have names.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasProcessor -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasProcessor">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A stock device has a specific processor.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasTitle -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasTitle">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of news and an event can both have titles.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#hasVersion -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#hasVersion">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     A piece of software/device has a particular version number.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#isAboutLanguage -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#isAboutLanguage">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of programming news can be about a particular programming language.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#pageNo -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#pageNo">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of news can have a page number (seen most with newspaper).
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;integer"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#sourceURL -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#sourceURL">
-        <rdfs:comment rdf:datatype="&xsd;string">
-    An item of news can have a source URL (assumse online news)
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#takesPlaceInInstitution -->
-
-    <owl:DatatypeProperty rdf:about="http://docs.staite.net/uni-co7216-cwk1#takesPlaceInInstitution">
-        <rdfs:comment rdf:datatype="&xsd;string">
-     Research can take place at a university/organisation.
-    </rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#App -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#App">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Software"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all applications</rdfs:comment>
+   <owl:Ontology rdf:about="http://docs.staite.net/uni-co7216-cwk2">    
+   </owl:Ontology>
+
+   <rdfs:Datatype rdf:about="xsd:string" />
+   
+   <!-- **************************************** -->
+   <!-- CLASSES AND PROPERTIES FROM COURSEWORK 1 -->
+   <!--   [ see coursework 1 for the comments ]  -->
+   <!--   [ not all classes from coursework 1 ]  -->
+   <!-- **************************************** -->
+   
+   <owl:Class rdf:about="#NewsSource"></owl:Class>
+   <owl:Class rdf:about="#Person"></owl:Class>
+   <owl:Class rdf:about="#Journalist">
+      <rdfs:subClassOf rdf:resource="#Person"/>
+   </owl:Class>
+
+   <owl:Class rdf:about="#NewsSubject"></owl:Class>
+
+   <owl:Class rdf:about="#Technology">
+      <rdfs:subClassOf rdf:resource="#NewsSubject"/>
+   </owl:Class>
+
+   <owl:Class rdf:about="#Software">
+      <rdfs:subClassOf rdf:resource="#Technology"/>
+   </owl:Class>
+
+   <owl:Class rdf:about="#App">
+      <rdfs:subClassOf rdf:resource="#Software"/>
+   </owl:Class>
+
+   <owl:Class rdf:about="#OpenSource">
+      <rdfs:subClassOf rdf:resource="#Technology"/>
+   </owl:Class>
+
+   <owl:Class rdf:about="#Device">
+      <rdfs:subClassOf rdf:resource="#Technology"/>
+   </owl:Class>
+
+   <owl:Class rdf:about="#Mobile">
+      <rdfs:subClassOf rdf:resource="#Device"/>
+   </owl:Class>
+
+   <owl:Class rdf:about="#Company">
+        <rdfs:subClassOf rdf:resource="#NewsSubject"/>
     </owl:Class>
+   
+   <owl:ObjectProperty rdf:about="#worksForSource">
+      <rdfs:domain rdf:resource="#Journalist"/>
+      <rdfs:range rdf:resource="#NewsSource"/>
+   </owl:ObjectProperty>
+
+   <owl:ObjectProperty rdf:about="#worksForSource">
+      <rdfs:domain rdf:resource="#Journalist"/>
+      <rdfs:range rdf:resource="#NewsSource"/>
+   </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#runsSoftware">
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="#Software"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="#builds">
+        <rdfs:domain rdf:resource="#Company"/>
+        <rdfs:range rdf:resource="#Device"/>
+    </owl:ObjectProperty>
     
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Article -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Article">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all written articles</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Blog -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Blog">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Independent"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Class of all blogs providing news content</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Company -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Company">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all technology companies</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Desktop -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Desktop">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all desktop devices</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Developer -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Developer">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all developers</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Device -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Device">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Technology"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all devices</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Editor -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Editor">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all editors</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Embedded -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Embedded">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all embedded devices</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Event -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Event">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all technology events</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Independent -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Independent">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSource"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all independent news sources</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Interview -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Interview">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of news items that are interviews</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Journalist -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Journalist">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Class of all journalists (people who document the news)</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Language -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Language">
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all spoken/written languages</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Legal -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Legal">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of legal concepts that can be related to technology</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Mobile -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Mobile">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all mobile devices</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Network -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Network">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Technology"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of network related technologies (including broadband, wifi, 3g)</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#News -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#News">
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all news items</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#NewsSource -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#NewsSource">
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all sources of news</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#NewsSubject -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#NewsSubject">
-        <rdfs:comment rdf:datatype="&xsd;string">
-      
-     The class of all things or concepts that are are considered news in the domain of technology.
-     An object/thing that is considered news worthy and has some loose relation to technology would
-     be an instance of this class.
-    
-     Example: the subject of &quot;Apple iPhone&quot; is a NewsSubject as there are news articles about it
-     and it is related to technology. Similarly the subject &quot;Patent Law&quot; can be considered
-     a NewsSubject because there exists some news articles talking about patents for technology.
-    
-     </rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#NewsWebsite -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#NewsWebsite">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSource"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Class of all news websites</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Newspaper -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Newspaper">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSource"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all newspapers</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Notebook -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Notebook">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all notebook (laptop) devices</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#OS -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#OS">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Software"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all operating systems</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#OpenSource -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#OpenSource">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Technology"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all open source technology</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Person -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Person">
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all people</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Programming -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Programming">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all programming news subjects</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Region -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Region">
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all geographical regions</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Research -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Research">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all research in the domain of technology</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Researcher -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Researcher">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all researchers that research in the domain of technology</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Security -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Security">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all security topics that are related to technology</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Software -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Software">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Technology"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all software</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Tablet -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Tablet">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all tablet devices</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Technology -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Technology">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsSubject"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all technology</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Video -->
-
-    <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Video">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The class of all news items that are in video form</rdfs:comment>
-    </owl:Class>
-    
-    
-    
-    
-    
-    <!--
-    
-    
-    
-    
-    
-     <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Blogger">
-        <rdfs:subClassOf rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Journalist"/>
-        <rdfs:subClassOf>
+   
+   <!-- **************************************** -->
+   <!-- NEW CLASSES / PROPERTIES / RESTRICTIONS  -->
+   <!-- **************************************** -->
+   
+   <owl:Class rdf:about="#Blogger">
+   
+      <rdfs:subClassOf rdf:resource="#Journalist" />
+      <rdfs:subClassOf>
          <owl:Restriction>
-            <owl:onProperty rdf:resource="http://docs.staite.net/uni-co7216-cwk1#documentsNews" />
-            <owl:someValuesFrom rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Blog" />
+            <owl:onProperty rdf:resource="#worksForSource" />
+            <owl:someValuesFrom rdf:resource="#Blog" />
          </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-    
-    
-     <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Blogger">
-        
-        
-        <owl:intersectionOf rdf:parseType="Collection">
-            <owl:Class rdf:about="http://docs.staite.net/uni-co7216-cwk1#Journalist"/>
-            <owl:Restriction>
-               <owl:onProperty rdf:resource="http://docs.staite.net/uni-co7216-cwk1#documentsNews" />
-               <owl:someValuesFrom rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Blog" />
-            </owl:Restriction>
-        </owl:intersectionOf>
-        
-        
-        
-    </owl:Class>
-    
-    
-    -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#ACTA -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#ACTA">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Legal"/>
-        <hasName rdf:datatype="&xsd;string">Anti-Counterfeiting Trade Agreement</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Android4.0 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Android4.0">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OS"/>
-        <hasVersion rdf:datatype="&xsd;string">4.0</hasVersion>
-        <hasName rdf:datatype="&xsd;string">Android 4.0</hasName>
-        <builtUsing rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Linux"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Apple -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Apple">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <hasName rdf:datatype="&xsd;string">Apple Inc.</hasName>
-        <basedInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#California"/>
-        <builds rdf:resource="http://docs.staite.net/uni-co7216-cwk1#MacBookPro"/>
-        <developsForDevice rdf:resource="http://docs.staite.net/uni-co7216-cwk1#MacBookPro"/>
-        <develops rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OSXLion"/>
-        <developsForOS rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OSXLion"/>
-        <organises rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WatchTheKeynote"/>
-        <developsForOS rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Windows7"/>
-        <developsForDevice rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iMac"/>
-        <builds rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iMac"/>
-        <develops rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iOS5"/>
-        <developsForOS rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iOS5"/>
-        <developsForDevice rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iPad2"/>
-        <builds rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iPad2"/>
-        <builds rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iPhone4S"/>
-        <developsForDevice rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iPhone4S"/>
-        <develops rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iTunes"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#BBC -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#BBC">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsWebsite"/>
-        <hasHomepage rdf:datatype="&xsd;string">http://www.bbc.co.uk/news/</hasHomepage>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#BillGates -->
+      </rdfs:subClassOf>
+      
+      <rdfs:comment rdf:datatype="xsd:string">
+      
+         * This is a subclass restriction.
+         * This is an existential restriction. 
+         * This is a range restriction.  
+         * This is an implicit cardinality restriction (min 1). 
+         
+         The class of people who are journalists and 
+         work for at least 1 blog.         
+      
+      </rdfs:comment>
+      
+   </owl:Class>
+
+   <!-- ========================================= -->
+
+   <owl:ObjectProperty rdf:about="#runsOnDevice">
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#BillGates">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Person"/>
-        <hasName rdf:datatype="&xsd;string">Bill Gates</hasName>
-        <knowsLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <livesIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Washington"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Broadband -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Broadband">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Network"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#California -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#California">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#ChrisKoenig -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#ChrisKoenig">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Developer"/>
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Journalist"/>
-        <hasName rdf:datatype="&xsd;string">Chris Koenig</hasName>
-        <worksForSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#ChrisKoenigMSDNBlog"/>
-        <knowsLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-        <worksIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-        <worksForSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#MicrosoftDeveloperEvangelist"/>
-        <documentsNews rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News2"/>
-        <documentsNews rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News3"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NokiaLumia800"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#TechNetWebcastATourOfWindows7"/>
-        <livesIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Texas"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Windows7"/>
-        <develops rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Windows7"/>
-        <develops rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WindowsPhone7.5Mango"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WindowsPhone7.5Mango"/>
-    </owl:NamedIndividual>
-    
+      <rdfs:domain rdf:resource="#Software" />
+      <rdfs:range rdf:resource="#Device" />
+      <owl:inverseOf rdf:resource="#runsSoftware" />
 
+      <rdfs:comment rdf:datatype="xsd:string">
+      
+         * This is an object property.
+         * This is an inverse property.
+         * This is a (boring) domain restriction.
+         * This is a (boring) range restriction.  
+         
+         A piece of software can run on 0 or more devices. 
+      
+      </rdfs:comment>
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#ChrisKoenigMSDNBlog -->
+   </owl:ObjectProperty>
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#ChrisKoenigMSDNBlog">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Blog"/>
-        <hasName rdf:datatype="&xsd;string">Chris Koenig MSDN Blog</hasName>
-        <hasHomepage rdf:datatype="&xsd;string">http://blogs.msdn.com/b/chkoenig/</hasHomepage>
-    </owl:NamedIndividual>
-    
+   <!-- ========================================= -->
 
+   <owl:ObjectProperty rdf:about="#builtByCompany">
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#CraigMundie -->
+      <rdfs:domain rdf:resource="#Device" />
+      <rdfs:range rdf:resource="#Company" />
+      <owl:inverseOf rdf:resource="#builds" />
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#CraigMundie">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Researcher"/>
-        <hasName rdf:datatype="&xsd;string">Craig Mundie</hasName>
-        <knowsLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <researches rdf:resource="http://docs.staite.net/uni-co7216-cwk1#KinectTechnology"/>
-        <worksIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-    </owl:NamedIndividual>
-    
+      <rdfs:comment rdf:datatype="xsd:string">
+      
+         * This is an object property.
+         * This is an inverse property.
+         * This is a (boring) domain restriction.
+         * This is a range restriction.  
+         
+        A device is built by a particular company.
+      
+      </rdfs:comment>
 
+   </owl:ObjectProperty>
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#DaveLee -->
+   <!-- ========================================= -->
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#DaveLee">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Journalist"/>
-        <hasName rdf:datatype="&xsd;string">Dave Lee</hasName>
-        <worksForSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#BBC"/>
-        <knowsLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <documentsNews rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News5"/>
-    </owl:NamedIndividual>
-    
+   <owl:Class rdf:about="#iPhoneDevice">
+      
+      <rdfs:subClassOf rdf:resource="#Mobile" />
+      <rdfs:subClassOf>
+         <owl:Restriction>
+            <owl:onProperty rdf:resource="#builtByCompany" />
+            <owl:hasValue rdf:resource="#Apple" />
+         </owl:Restriction>
+      </rdfs:subClassOf>
 
+      <rdfs:comment>
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Dell -->
+         * This is a subclass restriction.
+         * This is an (implicit) cardinality restriction (exactly 1).
+         * This is a range restriction. 
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Dell">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <hasName rdf:datatype="&xsd;string">Dell Inc.</hasName>
-        <builds rdf:resource="http://docs.staite.net/uni-co7216-cwk1#DellInspiron620"/>
-        <basedInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Texas"/>
-    </owl:NamedIndividual>
-    
+         All mobile phones made by apple are iPhones. Note that
+         the individuals are specific models like iPhone4S and
+         #iPhoneDevice is the class of these iPhone models. 
 
+      </rdfs:comment>
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#DellInspiron620 -->
+   </owl:Class> 
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#DellInspiron620">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Desktop"/>
-        <hasMBMemoryCapacity rdf:datatype="&xsd;integer">3000</hasMBMemoryCapacity>
-        <hasGBDiskCapacity rdf:datatype="&xsd;integer">500</hasGBDiskCapacity>
-        <hasName rdf:datatype="&xsd;string">Dell Inspiron 620</hasName>
-        <hasProcessor rdf:datatype="&xsd;string">Intel Core i5</hasProcessor>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Broadband"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Eclipse"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Firefox"/>
-        <availableInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Skype"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Ubuntu11.10"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Windows7"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iTunes"/>
-    </owl:NamedIndividual>
-    
+   <!-- ========================================= -->
 
+   <owl:Class rdf:about="#iPhoneApp">
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#EN -->
+      <rdfs:subClassOf rdf:resource="#App" />
+      <rdfs:subClassOf>            
+         <owl:Restriction>
+            <owl:onProperty rdf:resource="#runsOnDevice" />
+            <owl:allValuesFrom rdf:resource="#iPhoneDevice" />
+         </owl:Restriction>
+      </rdfs:subClassOf>
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#EN">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Language"/>
-        <hasName rdf:datatype="&xsd;string">English</hasName>
-    </owl:NamedIndividual>
-    
+      <rdfs:comment rdf:datatype="xsd:string">
 
+         * This is a subclass restriction.
+         * This is a universal restriction. 
+         * This is a range restriction. 
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Eclipse -->
+         The class of software that is open source. 
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Eclipse">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#App"/>
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OpenSource"/>
-        <hasName rdf:datatype="&xsd;string">Eclipse IDE</hasName>
-    </owl:NamedIndividual>
-    
+      </rdfs:comment>
 
+   </owl:Class>
+      
+   <!-- ========================================= -->
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#England -->
+   <owl:Class rdf:about="#OpenSourceSoftware">
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#England">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <withinRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#UnitedKingdom"/>
-    </owl:NamedIndividual>
-    
+      <rdfs:subClassOf rdf:resource="#Software" />
+      <rdfs:subClassOf rdf:resource="#OpenSource" />
 
+      <rdfs:comment rdf:datatype="xsd:string">
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#EuropeanUnion -->
+         * This is a subclass restriction.
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#EuropeanUnion">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:NamedIndividual>
-    
+         The class of software that is open source. 
 
+      </rdfs:comment>
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Firefox -->
+   </owl:Class>
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Firefox">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#App"/>
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OpenSource"/>
-        <hasName rdf:datatype="&xsd;string">Mozilla Firefox</hasName>
-    </owl:NamedIndividual>
-    
+   <!-- ========================================= -->
 
+   <owl:DatatypeProperty rdf:about="#hasVersion">
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Global -->
+      <rdfs:domain rdf:resource="#Software" />
+      <rdfs:range rdf:resource="xsd:string" />
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Global">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-    </owl:NamedIndividual>
-    
+      <rdfs:comment rdf:datatype="xsd:string">
 
+         * This is a datatype property.
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Hacking -->
+         A piece of software has a version. 
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Hacking">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Security"/>
-    </owl:NamedIndividual>
-    
+      </rdfs:comment>
 
+   </owl:DatatypeProperty>
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Helsinki -->
+   <!-- ========================================= -->
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Helsinki">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#SV"/>
-        <withinRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Sweden"/>
-    </owl:NamedIndividual>
-    
+   <owl:DatatypeProperty rdf:about="#hasGBDiskCapacity">
 
+      <rdfs:domain rdf:resource="#Device" />
+      <rdfs:range rdf:resource="xsd:integer" />
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Internet -->
+      <rdfs:comment rdf:datatype="xsd:string">
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Internet">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Network"/>
-        <connectivityInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-    </owl:NamedIndividual>
-    
+         * This is a datatype property.
 
+         A stock device has a fixed amount of disk capacity.
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Java -->
+      </rdfs:comment>
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Java">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OpenSource"/>
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Programming"/>
-        <isAboutLanguage rdf:datatype="&xsd;string">Java</isAboutLanguage>
-    </owl:NamedIndividual>
-    
+   </owl:DatatypeProperty>
 
+   <!-- ========================================= -->
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#KO -->
+   <owl:Class rdf:about="#Software">
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#KO">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Language"/>
-        <hasName rdf:datatype="&xsd;string">Korean</hasName>
-    </owl:NamedIndividual>
-    
+      <owl:equivalentClass>
+         <owl:Restriction>
+            <owl:onProperty rdf:resource="#hasVersion" />
+            <owl:cardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:cardinality>
+         </owl:Restriction>
+      </owl:equivalentClass>
 
+      <rdfs:comment rdf:datatype="xsd:string">
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Kinect -->
+         * This is a cardinality restriction.
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Kinect">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Device"/>
-        <availableInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-    </owl:NamedIndividual>
-    
+         Each piece of software can have at most 1 version. 
+         Each version of software is considered to be a new instance. 
+         Instance "Windows 7" is not the same as instance "Windows Vista".
 
+      </rdfs:comment>
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#KinectTechnology -->
+   </owl:Class>
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#KinectTechnology">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Research"/>
-        <takesPlaceInInstitution rdf:datatype="&xsd;string">Microsoft Research</takesPlaceInInstitution>
-        <researchAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Kinect"/>
-    </owl:NamedIndividual>
-    
+   <!-- ========================================= -->
 
+ 
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#LeicesterMercury -->
 
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#LeicesterMercury">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Newspaper"/>
-        <hasName rdf:datatype="&xsd;string">Leicester Mercury</hasName>
-        <hasCoverage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Leicestershire"/>
-        <hasCorrespondingWebsite rdf:resource="http://docs.staite.net/uni-co7216-cwk1#ThisIsLeicestershire"/>
-    </owl:NamedIndividual>
-    
 
 
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Leicestershire -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Leicestershire">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <withinRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#England"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Linux -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Linux">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OpenSource"/>
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Software"/>
-        <hasName rdf:datatype="&xsd;string">Linux (Kernel)</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#MacBookPro -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#MacBookPro">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Notebook"/>
-        <hasMBMemoryCapacity rdf:datatype="&xsd;integer">4000</hasMBMemoryCapacity>
-        <hasGBDiskCapacity rdf:datatype="&xsd;integer">500</hasGBDiskCapacity>
-        <hasProcessor rdf:datatype="&xsd;string">Intel Core i7</hasProcessor>
-        <hasName rdf:datatype="&xsd;string">MacBook Pro</hasName>
-        <hasVersion rdf:datatype="&xsd;string">Pro</hasVersion>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Broadband"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Eclipse"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Firefox"/>
-        <availableInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OSXLion"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Skype"/>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WIFI"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WhatsApp"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iTunes"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#MatthewPanzarino -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#MatthewPanzarino">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Editor"/>
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Journalist"/>
-        <hasName rdf:datatype="&xsd;string">Matthew Panzarino</hasName>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Apple"/>
-        <worksIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Apple"/>
-        <livesIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#California"/>
-        <knowsLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <documentsNews rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News1"/>
-        <editsNews rdf:resource="http://docs.staite.net/uni-co7216-cwk1#News1"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OSXLion"/>
-        <editsFor rdf:resource="http://docs.staite.net/uni-co7216-cwk1#TheNextWeb"/>
-        <worksForSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#TheNextWeb"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iMac"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iOS5"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iPad2"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iPhone4S"/>
-        <isInterestedIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iTunes"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Microsoft -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Microsoft">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <hasName rdf:datatype="&xsd;string">Microsoft Corporation</hasName>
-        <researches rdf:resource="http://docs.staite.net/uni-co7216-cwk1#KinectTechnology"/>
-        <organises rdf:resource="http://docs.staite.net/uni-co7216-cwk1#TechNetWebcastATourOfWindows7"/>
-        <basedInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Washington"/>
-        <developsForOS rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Windows7"/>
-        <develops rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Windows7"/>
-        <developsForOS rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WindowsPhone7.5Mango"/>
-        <develops rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WindowsPhone7.5Mango"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#MicrosoftDeveloperEvangelist -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#MicrosoftDeveloperEvangelist">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Blog"/>
-        <hasName rdf:datatype="&xsd;string">Microsoft Developer Evangelist</hasName>
-        <hasHomepage rdf:datatype="&xsd;string">chriskoenig.net</hasHomepage>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Mobile-3G -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Mobile-3G">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Network"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Mozilla -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Mozilla">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <basedInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#California"/>
-        <develops rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Firefox"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#News1 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#News1">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Article"/>
-        <datePublished rdf:datatype="&xsd;date">2012-02-21</datePublished>
-        <hasTitle rdf:datatype="&xsd;string">Microsoft says report of Office for iPad is ‘inaccurate’, but doesn’t flat out deny it</hasTitle>
-        <sourceURL rdf:datatype="&xsd;string">http://thenextweb.com/microsoft/2012/02/21/microsoft-says-report-of-office-coming-to-ipad-is-inaccurate-but-doesnt-flat-out-deny-it/</sourceURL>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Apple"/>
-        <hasLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <isRelevantTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-        <hasSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#TheNextWeb"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iPad2"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#News2 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#News2">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Video"/>
-        <datePublished rdf:datatype="&xsd;date">2011-10-28</datePublished>
-        <hasLength rdf:datatype="&xsd;integer">70</hasLength>
-        <hasTitle rdf:datatype="&xsd;string">Introducing Nokia Lumia</hasTitle>
-        <sourceURL rdf:datatype="&xsd;string">http://chriskoenig.net/2011/10/28/introducing-nokia-lumia/</sourceURL>
-        <hasLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <isRelevantTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-        <hasSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#MicrosoftDeveloperEvangelist"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NokiaLumia800"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WindowsPhone7.5Mango"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#News3 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#News3">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Article"/>
-        <datePublished rdf:datatype="&xsd;date">2009-01-07</datePublished>
-        <hasTitle rdf:datatype="&xsd;string">Windows 7 Beta Available This Week!</hasTitle>
-        <sourceURL rdf:datatype="&xsd;string">http://blogs.msdn.com/b/chkoenig/archive/2009/01/07/windows-7-beta-available-this-week.aspx</sourceURL>
-        <hasSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#ChrisKoenigMSDNBlog"/>
-        <hasLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <isRelevantTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Windows7"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#News4 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#News4">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Interview"/>
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Video"/>
-        <datePublished rdf:datatype="&xsd;date">2011-05-18</datePublished>
-        <hasLength rdf:datatype="&xsd;integer">286</hasLength>
-        <hasTitle rdf:datatype="&xsd;string">Microsoft&#39;s Bill Gates says he advocated Skype takeover</hasTitle>
-        <sourceURL rdf:datatype="&xsd;string">http://www.bbc.co.uk/news/business-13434352</sourceURL>
-        <hasSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#BBC"/>
-        <interviewTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#BillGates"/>
-        <hasLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <isRelevantTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Skype"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#News5 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#News5">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Article"/>
-        <datePublished rdf:datatype="&xsd;date">2012-02-22</datePublished>
-        <sourceURL rdf:datatype="&xsd;string">http://www.bbc.co.uk/news/technology-17225469</sourceURL>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#ACTA"/>
-        <hasSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#BBC"/>
-        <hasLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <isRelevantTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EuropeanUnion"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Internet"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Piracy"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#News6 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#News6">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Interview"/>
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Video"/>
-        <datePublished rdf:datatype="&xsd;date">2011-02-27</datePublished>
-        <hasLength rdf:datatype="&xsd;integer">224</hasLength>
-        <hasTitle rdf:datatype="&xsd;string">Microsoft research chief: Kinect puts us back on top</hasTitle>
-        <sourceURL rdf:datatype="&xsd;string">http://www.bbc.co.uk/news/business-12581442</sourceURL>
-        <hasSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#BBC"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#CraigMundie"/>
-        <interviewTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#CraigMundie"/>
-        <hasLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <isRelevantTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Kinect"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#KinectTechnology"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#News7 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#News7">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Article"/>
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Video"/>
-        <datePublished rdf:datatype="&xsd;date">2011-02-11</datePublished>
-        <hasLength rdf:datatype="&xsd;integer">273</hasLength>
-        <hasTitle rdf:datatype="&xsd;string">Nokia and Microsoft form partnership</hasTitle>
-        <sourceURL rdf:datatype="&xsd;string">http://www.bbc.co.uk/news/business-12427680</sourceURL>
-        <hasSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#BBC"/>
-        <hasLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <isRelevantTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Nokia"/>
-        <newsAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WindowsPhone7.5Mango"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Nokia -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Nokia">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <basedInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Helsinki"/>
-        <builds rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NokiaLumia800"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#NokiaLumia800 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#NokiaLumia800">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Mobile"/>
-        <hasVersion rdf:datatype="&xsd;string">800</hasVersion>
-        <hasName rdf:datatype="&xsd;string">Nokia Lumia 800</hasName>
-        <availableInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Mobile-3G"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Skype"/>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WIFI"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WhatsApp"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WindowsPhone7.5Mango"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iTunes"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#OSXLion -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#OSXLion">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OS"/>
-        <hasName rdf:datatype="&xsd;string">OS X Lion</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Piracy -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Piracy">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Legal"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#RichardBettsworth -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#RichardBettsworth">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Editor"/>
-        <hasName rdf:datatype="&xsd;string">Richard Bettsworth</hasName>
-        <knowsLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <worksForSource rdf:resource="http://docs.staite.net/uni-co7216-cwk1#LeicesterMercury"/>
-        <editsFor rdf:resource="http://docs.staite.net/uni-co7216-cwk1#LeicesterMercury"/>
-        <livesIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Leicestershire"/>
-        <editsFor rdf:resource="http://docs.staite.net/uni-co7216-cwk1#ThisIsLeicestershire"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#SV -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#SV">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Language"/>
-        <hasName rdf:datatype="&xsd;string">Swedish</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Samsung -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Samsung">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Company"/>
-        <builds rdf:resource="http://docs.staite.net/uni-co7216-cwk1#SamsungGalaxyS2"/>
-        <basedInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Seoul"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#SamsungGalaxyS2 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#SamsungGalaxyS2">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Mobile"/>
-        <hasVersion rdf:datatype="&xsd;string">SII</hasVersion>
-        <hasName rdf:datatype="&xsd;string">Samsung Galaxy SII</hasName>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Android4.0"/>
-        <availableInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Mobile-3G"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Skype"/>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WIFI"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WhatsApp"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#SanFrancisco -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#SanFrancisco">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Seoul -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Seoul">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#KO"/>
-        <withinRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#SouthKorea"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Skype -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Skype">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#App"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#SouthKorea -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#SouthKorea">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#KO"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Sweden -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Sweden">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <withinRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EuropeanUnion"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#SV"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#TechNetWebcastATourOfWindows7 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#TechNetWebcastATourOfWindows7">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-        <eventDate rdf:datatype="&xsd;date">2009-04-01</eventDate>
-        <hasTitle rdf:datatype="&xsd;string">TechNet Webcast: A Tour of Windows 7 (Level 100)</hasTitle>
-        <involvesPerson rdf:resource="http://docs.staite.net/uni-co7216-cwk1#ChrisKoenig"/>
-        <takesPlaceIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <involvesCompany rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Microsoft"/>
-        <isAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Windows7"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Texas -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Texas">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#TheNextWeb -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#TheNextWeb">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsWebsite"/>
-        <hasName rdf:datatype="&xsd;string">The Next Web</hasName>
-        <hasHomepage rdf:datatype="&xsd;string">http://thenextweb.com/</hasHomepage>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#ThisIsLeicestershire -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#ThisIsLeicestershire">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#NewsWebsite"/>
-        <hasName rdf:datatype="&xsd;string">This is Leicestershire</hasName>
-        <hasHomepage rdf:datatype="&xsd;string">http://www.thisisleicestershire.co.uk</hasHomepage>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Ubuntu11.10 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Ubuntu11.10">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OS"/>
-        <hasVersion rdf:datatype="&xsd;string">11.10</hasVersion>
-        <hasName rdf:datatype="&xsd;string">Ubuntu 11.10</hasName>
-        <builtUsing rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Firefox"/>
-        <builtUsing rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Linux"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#UnitedKingdom -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#UnitedKingdom">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-        <withinRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EuropeanUnion"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#WIFI -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#WIFI">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Network"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Washington -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Washington">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Region"/>
-        <hasMainLanguage rdf:resource="http://docs.staite.net/uni-co7216-cwk1#EN"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#WatchTheKeynote -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#WatchTheKeynote">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Event"/>
-        <eventDate rdf:datatype="&xsd;date">2011-10-01</eventDate>
-        <hasTitle rdf:datatype="&xsd;string">Wacth the Keynote</hasTitle>
-        <involvesCompany rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Apple"/>
-        <involvesPerson rdf:resource="http://docs.staite.net/uni-co7216-cwk1#MatthewPanzarino"/>
-        <takesPlaceIn rdf:resource="http://docs.staite.net/uni-co7216-cwk1#SanFrancisco"/>
-        <isAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iOS5"/>
-        <isAbout rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iPhone4S"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#WhatsApp -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#WhatsApp">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#App"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#Windows7 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#Windows7">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OS"/>
-        <hasVersion rdf:datatype="&xsd;string">7</hasVersion>
-        <hasName rdf:datatype="&xsd;string">Microsoft Windows</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#WindowsPhone7.5Mango -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#WindowsPhone7.5Mango">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OS"/>
-        <hasVersion rdf:datatype="&xsd;string">7.5 Mango</hasVersion>
-        <hasName rdf:datatype="&xsd;string">Microsoft Windows Phone</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#iMac -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#iMac">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Desktop"/>
-        <hasGBDiskCapacity rdf:datatype="&xsd;integer">1000</hasGBDiskCapacity>
-        <hasMBMemoryCapacity rdf:datatype="&xsd;integer">4000</hasMBMemoryCapacity>
-        <hasProcessor rdf:datatype="&xsd;string">Intel Core i5</hasProcessor>
-        <hasName rdf:datatype="&xsd;string">iMac</hasName>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Broadband"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Eclipse"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Firefox"/>
-        <availableInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OSXLion"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Skype"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Ubuntu11.10"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Windows7"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#iOS5 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#iOS5">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#OS"/>
-        <hasVersion rdf:datatype="&xsd;string">5</hasVersion>
-        <hasName rdf:datatype="&xsd;string">iOS 5</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#iPad2 -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#iPad2">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Tablet"/>
-        <hasVersion rdf:datatype="&xsd;string">2</hasVersion>
-        <hasName rdf:datatype="&xsd;string">Apple iPad 2</hasName>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Mobile-3G"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Skype"/>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WIFI"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WhatsApp"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iOS5"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iTunes"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#iPhone4S -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#iPhone4S">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Mobile"/>
-        <hasVersion rdf:datatype="&xsd;string">4S</hasVersion>
-        <hasName rdf:datatype="&xsd;string">Apple iPhone 4S</hasName>
-        <availableInRegion rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Global"/>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Mobile-3G"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#Skype"/>
-        <providesAccessTo rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WIFI"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#WhatsApp"/>
-        <runsSoftware rdf:resource="http://docs.staite.net/uni-co7216-cwk1#iTunes"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://docs.staite.net/uni-co7216-cwk1#iTunes -->
-
-    <owl:NamedIndividual rdf:about="http://docs.staite.net/uni-co7216-cwk1#iTunes">
-        <rdf:type rdf:resource="http://docs.staite.net/uni-co7216-cwk1#App"/>
-    </owl:NamedIndividual>
+      
+   <!-- **************************************** -->
+   <!--     INSTANCES OF NEW AND OLD CLASSES     -->
+   <!-- **************************************** -->         
+      
+   <owl:NamedIndividual rdf:about="#Apple">
+      <rdf:type rdf:resource="#Company"/>
+   </owl:NamedIndividual>
+      
 </rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
-
