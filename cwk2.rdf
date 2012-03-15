@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
 <rdf:RDF 
    xmlns="http://docs.staite.net/uni-co7216-cwk2#"
    xml:base="http://docs.staite.net/uni-co7216-cwk2"
@@ -8,16 +15,23 @@
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     
-   <owl:Ontology rdf:about="http://docs.staite.net/uni-co7216-cwk2">    
-   </owl:Ontology>
-
-   <rdfs:Datatype rdf:about="xsd:string" />
+   <owl:Ontology rdf:about="http://docs.staite.net/uni-co7216-cwk2"></owl:Ontology>
    
+   <!-- **************************************** -->   
+   <!-- CLASSES AND PROPERTIES FROM COURSEWORK 1 -->  
    <!-- **************************************** -->
-   <!-- CLASSES AND PROPERTIES FROM COURSEWORK 1 -->
-   <!--   [ see coursework 1 for the comments ]  -->
-   <!--   [ not all classes from coursework 1 ]  -->
-   <!-- **************************************** -->
+   
+   <!-- 
+      
+      Note that we havn't included rdfs:comment for each
+      of the classes and properties taken directly from 
+      the first coursework. If you need the comments for 
+      those please refer to our coursework 1 submission.      
+      
+   -->
+   
+   <owl:Class rdf:about="#Region"></owl:Class>   
+   <owl:Class rdf:about="#News"></owl:Class>
    
    <owl:Class rdf:about="#NewsSource"></owl:Class>
    <owl:Class rdf:about="#Person"></owl:Class>
@@ -74,7 +88,6 @@
         <rdfs:domain rdf:resource="#Company"/>
         <rdfs:range rdf:resource="#Device"/>
     </owl:ObjectProperty>
-    
    
    <!-- **************************************** -->
    <!-- NEW CLASSES / PROPERTIES / RESTRICTIONS  -->
@@ -94,7 +107,6 @@
       
          * This is a subclass restriction.
          * This is an existential restriction. 
-         * This is a range restriction.  
          * This is an implicit cardinality restriction (min 1). 
          
          The class of people who are journalists and 
@@ -138,9 +150,9 @@
          * This is an object property.
          * This is an inverse property.
          * This is a (boring) domain restriction.
-         * This is a range restriction.  
+         * This is a (boring) range restriction.  
          
-        A device is built by a particular company.
+        A device is built by a company.
       
       </rdfs:comment>
 
@@ -162,7 +174,6 @@
 
          * This is a subclass restriction.
          * This is an (implicit) cardinality restriction (exactly 1).
-         * This is a range restriction. 
 
          All mobile phones made by apple are iPhones. Note that
          the individuals are specific models like iPhone4S and
@@ -188,7 +199,6 @@
 
          * This is a subclass restriction.
          * This is a universal restriction. 
-         * This is a range restriction. 
 
          The class of software that is open source. 
 
@@ -218,13 +228,17 @@
    <owl:DatatypeProperty rdf:about="#hasVersion">
 
       <rdfs:domain rdf:resource="#Software" />
-      <rdfs:range rdf:resource="xsd:string" />
+      <rdfs:domain rdf:resource="#Device" />
+      <rdfs:range rdf:resource="&xsd;string" />
 
       <rdfs:comment rdf:datatype="xsd:string">
 
          * This is a datatype property.
+         * This is a (boring) domain restriction.
+         * This is a (boring) range restriction.  
 
          A piece of software has a version. 
+         A device has a version. 
 
       </rdfs:comment>
 
@@ -269,14 +283,147 @@
       </rdfs:comment>
 
    </owl:Class>
-
+   
    <!-- ========================================= -->
+   
+   <owl:FunctionalProperty rdf:about="#publishedBySource">
+      
+      <rdfs:domain rdf:resource="#News" />
+      <rdfs:range rdf:resource="#NewsSource" />
+      
+      <rdfs:comment rdf:datatype="xsd:string">
 
- 
+         * This is a range restriction.
 
+         Each piece of news can have only 1 source. 
 
+      </rdfs:comment>
+      
+   </owl:FunctionalProperty>
+   
+   <!-- ========================================= -->
+   
+   <owl:InverseFunctionalProperty rdf:about="#sourcePublishedNews">
+      
+      <owl:inverseOf rdf:resource="#publishedBySource" />
+      <rdfs:domain rdf:resource="#NewsSource" />
+      <rdfs:range rdf:resource="#News" />
+      
+      <rdfs:comment rdf:datatype="xsd:string">
 
+         * This is a domain restriction.
+         * This is an inverse functional restriction.
 
+         Each news source publishes some news. A single news
+         item can only be published by 1 source. 
+
+      </rdfs:comment>
+      
+   </owl:InverseFunctionalProperty>
+   
+   <!-- ========================================= -->
+   
+   <owl:ObjectProperty rdf:about="#withinRegion">
+      
+      <!-- 
+         
+         could use owl:TransitiveProperty but using the 
+         alternative way to show that we know it 
+         
+      -->
+      
+      <rdf:type rdf:resource="&owl;TransitiveProperty" />
+      <rdfs:domain rdf:resource="#Region" />
+      <rdfs:range rdf:resource="#Region" />
+      
+      <rdfs:comment rdf:datatype="xsd:string">
+
+         * This is a transitive property.
+
+         Each region can be contained within another region. 
+         
+            ~ Leicester is within England
+            ~ England is within World            
+            ~ Leicester is within World (implied)
+
+      </rdfs:comment>
+      
+   </owl:ObjectProperty> 
+   
+   <!-- ========================================= -->
+   
+   <owl:TransitiveProperty rdf:about="#newerVersionThan">
+      
+      <rdfs:domain rdf:resource="#Device" />
+      <rdfs:domain rdf:resource="#Software" />
+      
+      <rdfs:range rdf:resource="#Device" />
+      <rdfs:range rdf:resource="#Software" />
+      
+      <rdfs:comment rdf:datatype="xsd:string">
+
+         * This is a transitive property. 
+         * This is a (boring) domain restriction.
+         * This is a (boring) range restriction.
+         
+         An iPhone4S is a newerVersionThan iPhone3GS.         
+         Windows 7 is a newerVersionThan Windows Vista.
+
+      </rdfs:comment>
+      
+   </owl:ObjectProperty> 
+   
+   <!-- ========================================= -->
+   
+   <owl:Class rdf:about="#Device">
+      
+      <rdf:subClassOf>
+         <owl:Restriction>
+            <owl:onProperty rdf:resource="#newerVersionOf" />
+            <owl:allValuesFrom rdf:resource="#Device" />
+         </owl:Restriction>
+      </rdf:subClassOf>
+      
+      <rdfs:comment rdf:datatype="xsd:string">
+
+         * This is a transitive property.
+
+         Each region can be contained within another region. 
+         
+            ~ Leicester is within England
+            ~ England is within World            
+            ~ Leicester is within World (implied)
+
+      </rdfs:comment>
+      
+   </owl:Class>
+   
+   <!-- ========================================= -->
+   
+   <owl:Class rdf:about="#Software">
+      
+      <rdfs:subClassOf>
+         <owl:Restriction>
+            <owl:onProperty rdf:resource="#newerVersionOf" />
+            <owl:allValuesFrom rdf:resource="#Software" />
+         </owl:Restriction>
+      </rdfs:subClassOf>
+      
+      <rdfs:comment rdf:datatype="xsd:string">
+
+         * This is a universal restriciton. 
+         
+         Each region can be contained within another region. 
+         
+            ~ Leicester is within England
+            ~ England is within World            
+            ~ Leicester is within World (implied)
+
+      </rdfs:comment>
+      
+   </owl:Class>
+   
+   
       
    <!-- **************************************** -->
    <!--     INSTANCES OF NEW AND OLD CLASSES     -->
