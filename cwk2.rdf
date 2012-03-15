@@ -32,63 +32,81 @@
    
    <owl:Class rdf:about="#Region"></owl:Class>   
    <owl:Class rdf:about="#News"></owl:Class>
-   
+   <owl:Class rdf:about="#NewsSubject"></owl:Class>   
    <owl:Class rdf:about="#NewsSource"></owl:Class>
    <owl:Class rdf:about="#Person"></owl:Class>
+
    <owl:Class rdf:about="#Journalist">
-      <rdfs:subClassOf rdf:resource="#Person"/>
+      <rdfs:subClassOf rdf:resource="#Person" />
    </owl:Class>
 
-   <owl:Class rdf:about="#NewsSubject"></owl:Class>
-
    <owl:Class rdf:about="#Technology">
-      <rdfs:subClassOf rdf:resource="#NewsSubject"/>
+      <rdfs:subClassOf rdf:resource="#NewsSubject" />
    </owl:Class>
 
    <owl:Class rdf:about="#Software">
-      <rdfs:subClassOf rdf:resource="#Technology"/>
+      <rdfs:subClassOf rdf:resource="#Technology" />
    </owl:Class>
 
    <owl:Class rdf:about="#App">
-      <rdfs:subClassOf rdf:resource="#Software"/>
+      <rdfs:subClassOf rdf:resource="#Software" />
    </owl:Class>
 
    <owl:Class rdf:about="#OpenSource">
-      <rdfs:subClassOf rdf:resource="#Technology"/>
+      <rdfs:subClassOf rdf:resource="#Technology" />
    </owl:Class>
 
    <owl:Class rdf:about="#Device">
-      <rdfs:subClassOf rdf:resource="#Technology"/>
+      <rdfs:subClassOf rdf:resource="#Technology" />
    </owl:Class>
 
    <owl:Class rdf:about="#Mobile">
-      <rdfs:subClassOf rdf:resource="#Device"/>
+      <rdfs:subClassOf rdf:resource="#Device" />
    </owl:Class>
 
    <owl:Class rdf:about="#Company">
-        <rdfs:subClassOf rdf:resource="#NewsSubject"/>
+        <rdfs:subClassOf rdf:resource="#NewsSubject" />
     </owl:Class>
+
+   <owl:Class rdf:about="#Newspaper">
+      <rdfs:subClassOf rdf:resource="#NewsSource" />
+   </owl:Class>
    
    <owl:ObjectProperty rdf:about="#worksForSource">
-      <rdfs:domain rdf:resource="#Journalist"/>
-      <rdfs:range rdf:resource="#NewsSource"/>
+      <rdfs:domain rdf:resource="#Journalist" />
+      <rdfs:range rdf:resource="#NewsSource" />
    </owl:ObjectProperty>
 
    <owl:ObjectProperty rdf:about="#worksForSource">
-      <rdfs:domain rdf:resource="#Journalist"/>
-      <rdfs:range rdf:resource="#NewsSource"/>
+      <rdfs:domain rdf:resource="#Journalist" />
+      <rdfs:range rdf:resource="#NewsSource" />
    </owl:ObjectProperty>
 
     <owl:ObjectProperty rdf:about="#runsSoftware">
-        <rdfs:domain rdf:resource="#Device"/>
-        <rdfs:range rdf:resource="#Software"/>
+        <rdfs:domain rdf:resource="#Device" />
+        <rdfs:range rdf:resource="#Software" />
     </owl:ObjectProperty>
 
     <owl:ObjectProperty rdf:about="#builds">
-        <rdfs:domain rdf:resource="#Company"/>
-        <rdfs:range rdf:resource="#Device"/>
+        <rdfs:domain rdf:resource="#Company" />
+        <rdfs:range rdf:resource="#Device" />
     </owl:ObjectProperty>
-   
+
+   <owl:ObjectProperty rdf:about="#hasCoverage">
+      <rdfs:domain rdf:resource="#Newspaper" />
+      <rdfs:range rdf:resource="#Region" />
+   </owl:ObjectProperty>    
+
+   <owl:ObjectProperty rdf:about="#hasCorrespondingWebsite">
+      <rdfs:range rdf:resource="#NewsWebsite"/>
+      <rdfs:domain rdf:resource="#Newspaper"/>
+   </owl:ObjectProperty>
+
+   <owl:ObjectProperty rdf:about="#runsSoftware">
+      <rdfs:domain rdf:resource="#Device"/>
+      <rdfs:range rdf:resource="#Software"/>
+   </owl:ObjectProperty>
+
    <!-- **************************************** -->
    <!-- NEW CLASSES / PROPERTIES / RESTRICTIONS  -->
    <!-- **************************************** -->
@@ -177,7 +195,7 @@
 
          All mobile phones made by apple are iPhones. Note that
          the individuals are specific models like iPhone4S and
-         #iPhoneDevice is the class of these iPhone models. 
+         iPhoneDevice is the class of these iPhone models. 
 
       </rdfs:comment>
 
@@ -312,7 +330,7 @@
       <rdfs:comment rdf:datatype="xsd:string">
 
          * This is a domain restriction.
-         * This is an inverse functional restriction.
+         * This is an inverse functional property.
 
          Each news source publishes some news. A single news
          item can only be published by 1 source. 
@@ -339,12 +357,14 @@
       <rdfs:comment rdf:datatype="xsd:string">
 
          * This is a transitive property.
+         * This is a (boring) domain restriction.
+         * This is a (boring) range restriction.
 
          Each region can be contained within another region. 
          
             ~ Leicester is within England
-            ~ England is within World            
-            ~ Leicester is within World (implied)
+            ~ England is within Global            
+            ~ Leicester is within Global (implied)
 
       </rdfs:comment>
       
@@ -386,13 +406,9 @@
       
       <rdfs:comment rdf:datatype="xsd:string">
 
-         * This is a transitive property.
+         * This is a universal restriction. 
 
-         Each region can be contained within another region. 
-         
-            ~ Leicester is within England
-            ~ England is within World            
-            ~ Leicester is within World (implied)
+         A device can only be a newer version of another device.
 
       </rdfs:comment>
       
@@ -411,19 +427,130 @@
       
       <rdfs:comment rdf:datatype="xsd:string">
 
-         * This is a universal restriciton. 
-         
-         Each region can be contained within another region. 
-         
-            ~ Leicester is within England
-            ~ England is within World            
-            ~ Leicester is within World (implied)
+         * This is a universal restriction. 
+
+         A piece of software can only be a newer version of another piece of software.
 
       </rdfs:comment>
       
    </owl:Class>
    
+   <!-- ========================================= -->
+
+   <owl:Class rdf:about="#Newspaper">
+
+      <owl:subClassOf>
+
+         <owl:Restriction>
+            <owl:onProperty rdf:resource="#hasCoverage" />
+            <owl:minCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:minCardinality>
+         </owl:Restriction>
+
+         <rdfs:comment rdf:datatype="xsd:string">
+
+            * This is a min cardinality restriction.
+
+            A newspaper has coverage for at least 1 region. We include Global. 
+
+         </rdfs:comment>
+
+      </owl:subClassOf>
+
+      <owl:subClassOf>
+
+         <owl:Restriction>
+            <owl:onProperty rdf:resource="#hasCorrespondingWebsite" />
+            <owl:maxCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxCardinality>
+         </owl:Restriction>
+      
+         <rdfs:comment rdf:datatype="xsd:string">
+
+            * This is a max cardinality restriction.
+
+            A newspaper has at most 1 corresponding website. 
    
+         </rdfs:comment>
+
+      </owl:subClassOf>
+
+   </owl:Class>
+
+   <!-- ========================================= -->
+
+   <owl:SymmetricProperty rdf:about="#collaboratesWith">
+
+      <rdfs:domain rdf:resource="#Journalist" />
+      <rdfs:range rdf:resource="#Journalist" />
+
+      <rdfs:comment rdf:datatype="xsd:string">
+
+         * This is a symmetric property.
+
+         Journalist 1 collaborates with Journalist 2.
+         Journalist 2 collaborates with Journalist 1 (implied).
+
+      </rdfs:comment>
+
+   </owl:SymmetricProperty>
+
+   <!-- ========================================= -->
+
+   <owl:SymmetricProperty rdf:about="#canCommunicateWith">
+
+      <rdfs:domain rdf:resource="#Device" />
+      <rdfs:range rdf:resource="#Device" />
+
+      <rdfs:comment rdf:datatype="xsd:string">
+
+         * This is a symmetric property.
+
+         An iPhone can communicate with a desktop computer (via network/usb). 
+         A desktop computer can communicate with an iPhone (implied).
+
+      </rdfs:comment>
+
+   </owl:SymmetricProperty>
+
+   <!-- ========================================= -->
+
+   <owl:Class rdf:about="#Device">
+
+      <owl:subClassOf>
+         <owl:Restriction>
+            <owl:onProperty rdf:resource="#runsSoftware" />
+            <owl:someValuesFrom rdf:resource="#Software" />
+         </owl:Restriction>
+      </owl:subClassOf>
+
+      <rdfs:comment rdf:datatype="xsd:string">
+
+         * This is a existential restriction.
+
+         Every device must run at least one piece of software. 
+         Remember that firmware is considered software. 
+
+      </rdfs:comment>
+   
+   </owl:Class>
+
+   <!-- ========================================= -->
+   
+   <owl:InverseFunctionalProperty rdf:about="#hasPersonalBlog">
+      
+      <rdfs:domain rdf:resource="#Blogger" />
+      <rdfs:range rdf:resource="#Blog" />
+      
+      <rdfs:comment rdf:datatype="xsd:string">
+
+         * This is a domain restriction.
+         * This is an inverse functional property.
+
+         A blogger can have a personal blog. A single
+         personal blog only belongs to exactly 1 person.
+
+      </rdfs:comment>
+      
+   </owl:InverseFunctionalProperty>
       
    <!-- **************************************** -->
    <!--     INSTANCES OF NEW AND OLD CLASSES     -->
