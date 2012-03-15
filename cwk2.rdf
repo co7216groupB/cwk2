@@ -63,14 +63,48 @@
    <owl:Class rdf:about="#Mobile">
       <rdfs:subClassOf rdf:resource="#Device" />
    </owl:Class>
+   
+   <owl:Class rdf:about="#Notebook">
+     <rdfs:subClassOf rdf:resource="#Device"/>
+   </owl:Class>
+   
+   <owl:Class rdf:about="#OS">
+      <rdfs:subClassOf rdf:resource="#Software"/>
+   </owl:Class>
 
    <owl:Class rdf:about="#Company">
-        <rdfs:subClassOf rdf:resource="#NewsSubject" />
-    </owl:Class>
+      <rdfs:subClassOf rdf:resource="#NewsSubject" />
+   </owl:Class>
 
    <owl:Class rdf:about="#Newspaper">
       <rdfs:subClassOf rdf:resource="#NewsSource" />
    </owl:Class>
+   
+   <owl:Class rdf:about="#NewsWebsite">
+      <rdfs:subClassOf rdf:resource="#NewsSource"/>
+   </owl:Class>
+   
+   <owl:Class rdf:about="#Desktop">
+      <rdfs:subClassOf rdf:resource="#Device"/>
+   </owl:Class>
+   
+   <owl:Class rdf:about="#Independent">
+      <rdfs:subClassOf rdf:resource="#NewsSource"/>
+   </owl:Class>
+   
+   <owl:Class rdf:about="#Blog">
+      <rdfs:subClassOf rdf:resource="#Independent"/>
+   </owl:Class>
+   
+   <owl:Class rdf:about="#Developer">
+      <rdfs:subClassOf rdf:resource="#NewsSubject"/>
+      <rdfs:subClassOf rdf:resource="#Person"/>
+   </owl:Class>
+   
+   <owl:ObjectProperty rdf:about="#runsSoftware">
+      <rdfs:domain rdf:resource="#Device" />
+      <rdfs:range rdf:resource="#Software" />
+   </owl:ObjectProperty>
    
    <owl:ObjectProperty rdf:about="#worksForSource">
       <rdfs:domain rdf:resource="#Journalist" />
@@ -82,15 +116,10 @@
       <rdfs:range rdf:resource="#NewsSource" />
    </owl:ObjectProperty>
 
-    <owl:ObjectProperty rdf:about="#runsSoftware">
-        <rdfs:domain rdf:resource="#Device" />
-        <rdfs:range rdf:resource="#Software" />
-    </owl:ObjectProperty>
-
-    <owl:ObjectProperty rdf:about="#builds">
-        <rdfs:domain rdf:resource="#Company" />
-        <rdfs:range rdf:resource="#Device" />
-    </owl:ObjectProperty>
+   <owl:ObjectProperty rdf:about="#builds">
+      <rdfs:domain rdf:resource="#Company" />
+      <rdfs:range rdf:resource="#Device" />
+   </owl:ObjectProperty>
 
    <owl:ObjectProperty rdf:about="#hasCoverage">
       <rdfs:domain rdf:resource="#Newspaper" />
@@ -101,11 +130,18 @@
       <rdfs:range rdf:resource="#NewsWebsite"/>
       <rdfs:domain rdf:resource="#Newspaper"/>
    </owl:ObjectProperty>
-
-   <owl:ObjectProperty rdf:about="#runsSoftware">
-      <rdfs:domain rdf:resource="#Device"/>
+   
+   <owl:ObjectProperty rdf:about="#develops">
+      <rdfs:domain>
+         <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+               <owl:Class rdf:about="#Developer" />
+               <owl:Class rdf:about="#Company" />
+            </owl:unionOf>
+         </owl:Class>
+      </rdfs:domain>
       <rdfs:range rdf:resource="#Software"/>
-   </owl:ObjectProperty>
+    </owl:ObjectProperty>
 
    <!-- **************************************** -->
    <!-- NEW CLASSES / PROPERTIES / RESTRICTIONS  -->
@@ -246,7 +282,6 @@
    <owl:DatatypeProperty rdf:about="#hasVersion">
 
       <rdfs:domain rdf:resource="#Software" />
-      <rdfs:domain rdf:resource="#Device" />
       <rdfs:range rdf:resource="&xsd;string" />
 
       <rdfs:comment rdf:datatype="xsd:string">
@@ -267,7 +302,7 @@
    <owl:DatatypeProperty rdf:about="#hasGBDiskCapacity">
 
       <rdfs:domain rdf:resource="#Device" />
-      <rdfs:range rdf:resource="xsd:integer" />
+      <rdfs:range rdf:resource="&xsd;nonNegativeInteger" />
 
       <rdfs:comment rdf:datatype="xsd:string">
 
@@ -372,13 +407,10 @@
    
    <!-- ========================================= -->
    
-   <owl:TransitiveProperty rdf:about="#newerVersionThan">
+   <owl:TransitiveProperty rdf:about="#newerDeviceVersionThan">
       
       <rdfs:domain rdf:resource="#Device" />
-      <rdfs:domain rdf:resource="#Software" />
-      
       <rdfs:range rdf:resource="#Device" />
-      <rdfs:range rdf:resource="#Software" />
       
       <rdfs:comment rdf:datatype="xsd:string">
 
@@ -386,50 +418,51 @@
          * This is a (boring) domain restriction.
          * This is a (boring) range restriction.
          
-         An iPhone4S is a newerVersionThan iPhone3GS.         
-         Windows 7 is a newerVersionThan Windows Vista.
+         An iPhone4S is a newerDeviceVersionThan iPhone3GS.   
 
       </rdfs:comment>
       
-   </owl:ObjectProperty> 
+   </owl:TransitiveProperty> 
    
    <!-- ========================================= -->
    
-   <owl:Class rdf:about="#Device">
+   <owl:TransitiveProperty rdf:about="#newerSoftwareVersionThan">
       
-      <rdf:subClassOf>
-         <owl:Restriction>
-            <owl:onProperty rdf:resource="#newerVersionOf" />
-            <owl:allValuesFrom rdf:resource="#Device" />
-         </owl:Restriction>
-      </rdf:subClassOf>
+      <rdfs:domain rdf:resource="#Software" />
+      <rdfs:range rdf:resource="#Software" />
       
       <rdfs:comment rdf:datatype="xsd:string">
 
-         * This is a universal restriction. 
-
-         A device can only be a newer version of another device.
+         * This is a transitive property. 
+         * This is a (boring) domain restriction.
+         * This is a (boring) range restriction.
+                 
+         Windows 7 is a newerSoftwareVersionThan Windows Vista.
 
       </rdfs:comment>
       
-   </owl:Class>
+   </owl:TransitiveProperty> 
    
    <!-- ========================================= -->
    
-   <owl:Class rdf:about="#Software">
+   <owl:Class rdf:about="#OpenSourceCompany">
       
       <rdfs:subClassOf>
          <owl:Restriction>
-            <owl:onProperty rdf:resource="#newerVersionOf" />
-            <owl:allValuesFrom rdf:resource="#Software" />
+            <owl:onProperty rdf:resource="#develops" />
+            <owl:allValuesFrom rdf:resource="#OpenSourceSoftware" />
          </owl:Restriction>
       </rdfs:subClassOf>
       
+      <rdfs:subClassOf rdf:resource="#Company" />
+      
       <rdfs:comment rdf:datatype="xsd:string">
 
+         * This is a subclass restriction.
          * This is a universal restriction. 
 
-         A piece of software can only be a newer version of another piece of software.
+         An open source company (Canonical) only develops open 
+         source software (Ubuntu).
 
       </rdfs:comment>
       
@@ -439,39 +472,38 @@
 
    <owl:Class rdf:about="#Newspaper">
 
-      <owl:subClassOf>
-
+      <rdfs:subClassOf>
          <owl:Restriction>
             <owl:onProperty rdf:resource="#hasCoverage" />
             <owl:minCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:minCardinality>
+            
+            <rdfs:comment rdf:datatype="xsd:string">
+
+               * This is a min cardinality restriction.
+
+               A newspaper has coverage for at least 1 region. We include Global. 
+
+            </rdfs:comment>
+            
          </owl:Restriction>
+      </rdfs:subClassOf>
 
-         <rdfs:comment rdf:datatype="xsd:string">
-
-            * This is a min cardinality restriction.
-
-            A newspaper has coverage for at least 1 region. We include Global. 
-
-         </rdfs:comment>
-
-      </owl:subClassOf>
-
-      <owl:subClassOf>
-
+      <rdfs:subClassOf>
          <owl:Restriction>
+            
             <owl:onProperty rdf:resource="#hasCorrespondingWebsite" />
             <owl:maxCardinality rdf:datatype="xsd:nonNegativeInteger">1</owl:maxCardinality>
-         </owl:Restriction>
+            
+            <rdfs:comment rdf:datatype="xsd:string">
+
+               * This is a max cardinality restriction.
+
+               A newspaper has at most 1 corresponding website. 
       
-         <rdfs:comment rdf:datatype="xsd:string">
-
-            * This is a max cardinality restriction.
-
-            A newspaper has at most 1 corresponding website. 
-   
-         </rdfs:comment>
-
-      </owl:subClassOf>
+            </rdfs:comment>
+            
+         </owl:Restriction>  
+      </rdfs:subClassOf>
 
    </owl:Class>
 
@@ -515,12 +547,12 @@
 
    <owl:Class rdf:about="#Device">
 
-      <owl:subClassOf>
+      <rdfs:subClassOf>
          <owl:Restriction>
             <owl:onProperty rdf:resource="#runsSoftware" />
             <owl:someValuesFrom rdf:resource="#Software" />
          </owl:Restriction>
-      </owl:subClassOf>
+      </rdfs:subClassOf>
 
       <rdfs:comment rdf:datatype="xsd:string">
 
@@ -559,5 +591,117 @@
    <owl:NamedIndividual rdf:about="#Apple">
       <rdf:type rdf:resource="#Company"/>
    </owl:NamedIndividual>
-      
+   
+   <owl:NamedIndividual rdf:about="#JonathansBlog">
+      <rdf:type rdf:resource="#Blog" />
+      <sourcePublishedNews rdf:resource="#MyFirstBlogEntry" />
+   </owl:NamedIndividual>
+   
+   <owl:NamedIndividual rdf:about="#Jonathan">
+      <rdf:type rdf:resource="#Blogger" />
+      <collaboratesWith>
+         <owl:NamedIndividual rdf:about="#Simone">
+            <rdf:type rdf:resource="#Journalist" />
+         </owl:NamedIndividual>
+      </collaboratesWith>
+      <hasPersonalBlog rdf:resource="#JonathansBlog" />
+      <worksForSource rdf:resource="#LeicesterMercury" />
+   </owl:NamedIndividual>
+   
+   <owl:NamedIndividual rdf:about="#Ubuntu1110">
+      <rdf:type rdf:resource="#OpenSourceSoftware" />
+      <rdf:type rdf:resource="#OS" />
+      <runsOnDevice>
+         <owl:NamedIndividual rdf:about="#Dell_Inspiron_620">
+            <rdf:type rdf:resource="#Desktop" />
+            <builtByCompany>
+               <!-- implies "builds" -->
+               <owl:NamedIndividual rdf:about="#Dell">
+                  <rdf:type rdf:resource="#Company" />
+               </owl:NamedIndividual>
+            </builtByCompany>
+            <hasGBDiskCapacity rdf:datatype="&xsd;nonNegativeInteger">500</hasGBDiskCapacity>
+            <!-- implies "runsOnDevice" -->
+            <runsSoftware rdf:resource="#Ubuntu1204" />
+            <!-- implies "runsOnDevice" -->
+            <runsSoftware rdf:resource="#Ubuntu1104" />
+            <!-- implies "runsOnDevice" -->
+            <runsSoftware rdf:resource="#Ubuntu1110" />
+         </owl:NamedIndividual>
+      </runsOnDevice>
+      <hasVersion>11.10</hasVersion>      
+      <newerSoftwareVersionThan rdf:resource="#Ubuntu1104" />
+   </owl:NamedIndividual>
+   
+   <owl:NamedIndividual rdf:about="#Ubuntu1204">
+      <rdf:type rdf:resource="#OpenSourceSoftware" />
+      <rdf:type rdf:resource="#OS" />
+      <hasVersion>12.04</hasVersion>
+      <newerSoftwareVersionThan rdf:resource="#Ubuntu1110" />
+   </owl:NamedIndividual>
+   
+   <!-- implies: Ubuntu1204 "newerSoftwareVersionThan" Ubuntu 1104 -->
+   <owl:NamedIndividual rdf:about="#Ubuntu1104">
+      <rdf:type rdf:resource="#OpenSourceSoftware" />
+      <rdf:type rdf:resource="#OS" />
+      <hasVersion>11.04</hasVersion>
+   </owl:NamedIndividual>
+   
+   <owl:NamedIndividual rdf:about="#Canonical">
+      <rdf:type rdf:resource="#OpenSourceCompany" />
+      <develops rdf:resource="#Ubuntu1104" />
+      <develops rdf:resource="#Ubuntu1110" />
+      <develops rdf:resource="#Ubuntu1204" />
+   </owl:NamedIndividual>
+   
+   <owl:NamedIndividual rdf:about="#iPhone4S">
+      <rdf:type rdf:resource="#iPhoneDevice" />
+      <builtByCompany rdf:resource="#Apple" />
+      <!-- implies: Dell Inspiron "canCommunicateWith" iPhone4S -->
+      <canCommunicateWith rdf:resource="#Dell_Inspiron_620" />
+      <runsSoftware rdf:about="#MobileSafari" />
+      <newerDeviceVersionThan>
+         <owl:NamedIndividual rdf:about="iPhone4">
+            <!-- implies: "builtByCompany" Apple -->
+            <rdf:type rdf:resource="#iPhoneDevice" />
+            <runsSoftware rdf:about="#MobileSafari" />
+         </owl:NamedIndividual>
+      </newerDeviceVersionThan>
+   </owl:NamedIndividual>
+   
+   <owl:NamedIndividual rdf:about="#MobileSafari">
+      <rdf:type rdf:resource="#iPhoneApp" />
+      <runsOnDevice rdf:resource="#iPhone4S" />
+   </owl:NamedIndividual>
+   
+   <owl:NamedIndividual rdf:about="#MyFirstBlogEntry">
+      <rdf:type rdf:resource="#News" />
+      <publishedBySource rdf:resource="#JonathansBlog" />
+   </owl:NamedIndividual>
+   
+   <!-- implies: Leicester "withinRegion" Global -->
+   <owl:NamedIndividual rdf:about="#Leicester">
+      <rdf:type rdf:resource="#Region" />
+      <withinRegion>
+         <owl:NamedIndividual rdf:about="#England">
+            <rdf:type rdf:resource="#Region" />
+            <withinRegion>
+               <owl:NamedIndividual rdf:about="#Global">
+                  <rdf:type rdf:resource="#Region" />
+               </owl:NamedIndividual>
+            </withinRegion>
+         </owl:NamedIndividual>
+      </withinRegion>
+   </owl:NamedIndividual>
+   
+   <owl:NamedIndividual rdf:about="#LeicesterMercury">
+      <rdf:type rdf:resource="#Newspaper" />
+      <hasCoverage rdf:resource="#Leicester" />
+      <hasCorrespondingWebsite>
+         <owl:NamedIndividual rdf:about="#ThisIsLeicestershireWebsite">
+            <rdf:type rdf:resource="#NewsWebsite" />
+         </owl:NamedIndividual>
+      </hasCorrespondingWebsite>
+   </owl:NamedIndividual>
+   
 </rdf:RDF>
