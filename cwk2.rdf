@@ -15,120 +15,196 @@
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     
-   <owl:Ontology rdf:about="http://docs.staite.net/uni-co7216-cwk2"></owl:Ontology>
+   <owl:Ontology rdf:about="http://docs.staite.net/uni-co7216-cwk2">
+   
+   
+   </owl:Ontology>
    
    <!-- **************************************** -->   
    <!-- CLASSES AND PROPERTIES FROM COURSEWORK 1 -->  
    <!-- **************************************** -->
    
-   <!-- 
-      
-      Note that we havn't included rdfs:comment for each
-      of the classes and properties taken directly from 
-      the first coursework. If you need the comments for 
-      those please refer to our coursework 1 submission.      
-      
-   -->
+   <owl:Class rdf:about="#Region">
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all geographical regions.
+      </rdfs:comment>
+   </owl:Class>   
    
-   <owl:Class rdf:about="#Region"></owl:Class>   
-   <owl:Class rdf:about="#News"></owl:Class>
-   <owl:Class rdf:about="#NewsSubject"></owl:Class>   
-   <owl:Class rdf:about="#NewsSource"></owl:Class>
-   <owl:Class rdf:about="#Person"></owl:Class>
+   <owl:Class rdf:about="#News">
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all news items.
+      </rdfs:comment>
+   </owl:Class>
+   
+   <owl:Class rdf:about="#NewsSubject">
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all news subjects.
+      </rdfs:comment>
+   </owl:Class>   
+   
+   <owl:Class rdf:about="#NewsSource">
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all news sources.
+      </rdfs:comment>
+   </owl:Class>
+   
+   <owl:Class rdf:about="#Person">
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all people.
+      </rdfs:comment>
+   </owl:Class>
 
    <owl:Class rdf:about="#Journalist">
       <rdfs:subClassOf rdf:resource="#Person" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all journalists.
+      </rdfs:comment>
    </owl:Class>
 
    <owl:Class rdf:about="#Technology">
       <rdfs:subClassOf rdf:resource="#NewsSubject" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all technology.
+      </rdfs:comment>
    </owl:Class>
 
    <owl:Class rdf:about="#Software">
       <rdfs:subClassOf rdf:resource="#Technology" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all software.
+      </rdfs:comment>
    </owl:Class>
 
    <owl:Class rdf:about="#App">
       <rdfs:subClassOf rdf:resource="#Software" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all applications.
+      </rdfs:comment>
    </owl:Class>
 
    <owl:Class rdf:about="#OpenSource">
       <rdfs:subClassOf rdf:resource="#Technology" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all open source technology.
+      </rdfs:comment>
    </owl:Class>
 
    <owl:Class rdf:about="#Device">
       <rdfs:subClassOf rdf:resource="#Technology" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all devices.
+      </rdfs:comment>
    </owl:Class>
 
    <owl:Class rdf:about="#Mobile">
       <rdfs:subClassOf rdf:resource="#Device" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all mobile devices.
+      </rdfs:comment>
    </owl:Class>
    
    <owl:Class rdf:about="#Notebook">
-     <rdfs:subClassOf rdf:resource="#Device"/>
+     <rdfs:subClassOf rdf:resource="#Device" />
+     <rdfs:comment rdf:datatype="xsd:string">
+         Class of all notebook devices.
+      </rdfs:comment>
    </owl:Class>
    
    <owl:Class rdf:about="#OS">
-      <rdfs:subClassOf rdf:resource="#Software"/>
+      <rdfs:subClassOf rdf:resource="#Software" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all operating systems.
+      </rdfs:comment>
    </owl:Class>
 
    <owl:Class rdf:about="#Company">
       <rdfs:subClassOf rdf:resource="#NewsSubject" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all companies.
+      </rdfs:comment>
    </owl:Class>
 
    <owl:Class rdf:about="#Newspaper">
       <rdfs:subClassOf rdf:resource="#NewsSource" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all newspapers.
+      </rdfs:comment>
    </owl:Class>
    
    <owl:Class rdf:about="#NewsWebsite">
       <rdfs:subClassOf rdf:resource="#NewsSource"/>
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all news websites.
+      </rdfs:comment>
    </owl:Class>
    
    <owl:Class rdf:about="#Desktop">
       <rdfs:subClassOf rdf:resource="#Device"/>
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all desktop computers.
+      </rdfs:comment>
    </owl:Class>
    
    <owl:Class rdf:about="#Independent">
       <rdfs:subClassOf rdf:resource="#NewsSource"/>
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all independent news sources.
+      </rdfs:comment>
    </owl:Class>
    
    <owl:Class rdf:about="#Blog">
       <rdfs:subClassOf rdf:resource="#Independent"/>
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all blogs.
+      </rdfs:comment>
    </owl:Class>
    
    <owl:Class rdf:about="#Developer">
       <rdfs:subClassOf rdf:resource="#NewsSubject"/>
       <rdfs:subClassOf rdf:resource="#Person"/>
+      <rdfs:comment rdf:datatype="xsd:string">
+         Class of all developers.
+      </rdfs:comment>
    </owl:Class>
    
    <owl:ObjectProperty rdf:about="#runsSoftware">
       <rdfs:domain rdf:resource="#Device" />
       <rdfs:range rdf:resource="#Software" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         A device runs software.
+      </rdfs:comment>
    </owl:ObjectProperty>
    
    <owl:ObjectProperty rdf:about="#worksForSource">
       <rdfs:domain rdf:resource="#Journalist" />
       <rdfs:range rdf:resource="#NewsSource" />
-   </owl:ObjectProperty>
-
-   <owl:ObjectProperty rdf:about="#worksForSource">
-      <rdfs:domain rdf:resource="#Journalist" />
-      <rdfs:range rdf:resource="#NewsSource" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         A journalist works for a news source.
+      </rdfs:comment>
    </owl:ObjectProperty>
 
    <owl:ObjectProperty rdf:about="#builds">
       <rdfs:domain rdf:resource="#Company" />
       <rdfs:range rdf:resource="#Device" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         A company builds a device.
+      </rdfs:comment>
    </owl:ObjectProperty>
 
    <owl:ObjectProperty rdf:about="#hasCoverage">
       <rdfs:domain rdf:resource="#Newspaper" />
       <rdfs:range rdf:resource="#Region" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         A newspaper has coverage in this/these regions.
+      </rdfs:comment>
    </owl:ObjectProperty>    
 
    <owl:ObjectProperty rdf:about="#hasCorrespondingWebsite">
       <rdfs:range rdf:resource="#NewsWebsite"/>
       <rdfs:domain rdf:resource="#Newspaper"/>
+      <rdfs:comment rdf:datatype="xsd:string">
+         A newspaper has a corresponding website.
+      </rdfs:comment>
    </owl:ObjectProperty>
    
    <owl:ObjectProperty rdf:about="#develops">
@@ -141,6 +217,10 @@
          </owl:Class>
       </rdfs:domain>
       <rdfs:range rdf:resource="#Software"/>
+      <rdfs:comment rdf:datatype="xsd:string">
+         A developer can develop software.
+         A company can develop software.
+      </rdfs:comment>
     </owl:ObjectProperty>
 
    <!-- **************************************** -->
@@ -254,7 +334,8 @@
          * This is a subclass restriction.
          * This is a universal restriction. 
 
-         The class of software that is open source. 
+         Every iPhoneApp must be an App and it can only 
+         run on an iPhoneDevice. 
 
       </rdfs:comment>
 
@@ -291,7 +372,6 @@
          * This is a (boring) range restriction.  
 
          A piece of software has a version. 
-         A device has a version. 
 
       </rdfs:comment>
 
@@ -659,12 +739,12 @@
       <builtByCompany rdf:resource="#Apple" />
       <!-- implies: Dell Inspiron "canCommunicateWith" iPhone4S -->
       <canCommunicateWith rdf:resource="#Dell_Inspiron_620" />
-      <runsSoftware rdf:about="#MobileSafari" />
+      <runsSoftware rdf:resource="#MobileSafari" />
       <newerDeviceVersionThan>
          <owl:NamedIndividual rdf:about="iPhone4">
             <!-- implies: "builtByCompany" Apple -->
             <rdf:type rdf:resource="#iPhoneDevice" />
-            <runsSoftware rdf:about="#MobileSafari" />
+            <runsSoftware rdf:resource="#MobileSafari" />
          </owl:NamedIndividual>
       </newerDeviceVersionThan>
    </owl:NamedIndividual>
