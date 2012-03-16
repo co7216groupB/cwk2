@@ -26,30 +26,35 @@
    
    <owl:Class rdf:about="#Region">
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all geographical regions.
       </rdfs:comment>
    </owl:Class>   
    
    <owl:Class rdf:about="#News">
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all news items.
       </rdfs:comment>
    </owl:Class>
    
    <owl:Class rdf:about="#NewsSubject">
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all news subjects.
       </rdfs:comment>
    </owl:Class>   
    
    <owl:Class rdf:about="#NewsSource">
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all news sources.
       </rdfs:comment>
    </owl:Class>
    
    <owl:Class rdf:about="#Person">
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all people.
       </rdfs:comment>
    </owl:Class>
@@ -57,6 +62,7 @@
    <owl:Class rdf:about="#Journalist">
       <rdfs:subClassOf rdf:resource="#Person" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all journalists.
       </rdfs:comment>
    </owl:Class>
@@ -64,6 +70,7 @@
    <owl:Class rdf:about="#Technology">
       <rdfs:subClassOf rdf:resource="#NewsSubject" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all technology.
       </rdfs:comment>
    </owl:Class>
@@ -71,6 +78,7 @@
    <owl:Class rdf:about="#Software">
       <rdfs:subClassOf rdf:resource="#Technology" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all software.
       </rdfs:comment>
    </owl:Class>
@@ -78,6 +86,7 @@
    <owl:Class rdf:about="#App">
       <rdfs:subClassOf rdf:resource="#Software" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all applications.
       </rdfs:comment>
    </owl:Class>
@@ -85,6 +94,7 @@
    <owl:Class rdf:about="#OpenSource">
       <rdfs:subClassOf rdf:resource="#Technology" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all open source technology.
       </rdfs:comment>
    </owl:Class>
@@ -92,6 +102,7 @@
    <owl:Class rdf:about="#Device">
       <rdfs:subClassOf rdf:resource="#Technology" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all devices.
       </rdfs:comment>
    </owl:Class>
@@ -99,6 +110,7 @@
    <owl:Class rdf:about="#Mobile">
       <rdfs:subClassOf rdf:resource="#Device" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all mobile devices.
       </rdfs:comment>
    </owl:Class>
@@ -106,6 +118,7 @@
    <owl:Class rdf:about="#Notebook">
      <rdfs:subClassOf rdf:resource="#Device" />
      <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all notebook devices.
       </rdfs:comment>
    </owl:Class>
@@ -113,6 +126,7 @@
    <owl:Class rdf:about="#OS">
       <rdfs:subClassOf rdf:resource="#Software" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all operating systems.
       </rdfs:comment>
    </owl:Class>
@@ -120,6 +134,7 @@
    <owl:Class rdf:about="#Company">
       <rdfs:subClassOf rdf:resource="#NewsSubject" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all companies.
       </rdfs:comment>
    </owl:Class>
@@ -127,6 +142,7 @@
    <owl:Class rdf:about="#Newspaper">
       <rdfs:subClassOf rdf:resource="#NewsSource" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all newspapers.
       </rdfs:comment>
    </owl:Class>
@@ -134,6 +150,7 @@
    <owl:Class rdf:about="#NewsWebsite">
       <rdfs:subClassOf rdf:resource="#NewsSource"/>
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all news websites.
       </rdfs:comment>
    </owl:Class>
@@ -141,6 +158,7 @@
    <owl:Class rdf:about="#Desktop">
       <rdfs:subClassOf rdf:resource="#Device"/>
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all desktop computers.
       </rdfs:comment>
    </owl:Class>
@@ -148,6 +166,7 @@
    <owl:Class rdf:about="#Independent">
       <rdfs:subClassOf rdf:resource="#NewsSource"/>
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all independent news sources.
       </rdfs:comment>
    </owl:Class>
@@ -155,6 +174,7 @@
    <owl:Class rdf:about="#Blog">
       <rdfs:subClassOf rdf:resource="#Independent"/>
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all blogs.
       </rdfs:comment>
    </owl:Class>
@@ -163,6 +183,7 @@
       <rdfs:subClassOf rdf:resource="#NewsSubject"/>
       <rdfs:subClassOf rdf:resource="#Person"/>
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Class ]
          Class of all developers.
       </rdfs:comment>
    </owl:Class>
@@ -171,6 +192,7 @@
       <rdfs:domain rdf:resource="#Device" />
       <rdfs:range rdf:resource="#Software" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Property ]
          A device runs software.
       </rdfs:comment>
    </owl:ObjectProperty>
@@ -179,6 +201,7 @@
       <rdfs:domain rdf:resource="#Journalist" />
       <rdfs:range rdf:resource="#NewsSource" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Property ]
          A journalist works for a news source.
       </rdfs:comment>
    </owl:ObjectProperty>
@@ -187,6 +210,7 @@
       <rdfs:domain rdf:resource="#Company" />
       <rdfs:range rdf:resource="#Device" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Property ]
          A company builds a device.
       </rdfs:comment>
    </owl:ObjectProperty>
@@ -195,6 +219,7 @@
       <rdfs:domain rdf:resource="#Newspaper" />
       <rdfs:range rdf:resource="#Region" />
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Property ]
          A newspaper has coverage in this/these regions.
       </rdfs:comment>
    </owl:ObjectProperty>    
@@ -203,6 +228,7 @@
       <rdfs:range rdf:resource="#NewsWebsite"/>
       <rdfs:domain rdf:resource="#Newspaper"/>
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Property ]
          A newspaper has a corresponding website.
       </rdfs:comment>
    </owl:ObjectProperty>
@@ -218,6 +244,7 @@
       </rdfs:domain>
       <rdfs:range rdf:resource="#Software"/>
       <rdfs:comment rdf:datatype="xsd:string">
+         [ Supporting Property ]
          A developer can develop software.
          A company can develop software.
       </rdfs:comment>
@@ -670,11 +697,18 @@
       
    <owl:NamedIndividual rdf:about="#Apple">
       <rdf:type rdf:resource="#Company"/>
+      <rdfs:comment rdf:datatype="xsd:string">
+         Apple is a Company.
+         Apple builds iPhone 4S (implied).
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <owl:NamedIndividual rdf:about="#JonathansBlog">
       <rdf:type rdf:resource="#Blog" />
-      <sourcePublishedNews rdf:resource="#MyFirstBlogEntry" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Jonathans Blog is a Blog.
+         Jonathans Blog published the news item MyFirstBlogEntry (implied).
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <owl:NamedIndividual rdf:about="#Jonathan">
@@ -682,10 +716,20 @@
       <collaboratesWith>
          <owl:NamedIndividual rdf:about="#Simone">
             <rdf:type rdf:resource="#Journalist" />
+            <rdfs:comment rdf:datatype="xsd:string">
+               Simone is a Journalist.
+               Simone collaborates with Jonathan (implied).
+            </rdfs:comment>
          </owl:NamedIndividual>
       </collaboratesWith>
       <hasPersonalBlog rdf:resource="#JonathansBlog" />
       <worksForSource rdf:resource="#LeicesterMercury" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Jonathan is a Blogger.
+         Jonathan collaborates with Simone.
+         Jonathan has the personal blog JonathansBlog.
+         Jonathan works for the Leicester Mecury.
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <owl:NamedIndividual rdf:about="#Ubuntu1110">
@@ -698,6 +742,10 @@
                <!-- implies "builds" -->
                <owl:NamedIndividual rdf:about="#Dell">
                   <rdf:type rdf:resource="#Company" />
+                  <rdfs:comment rdf:datatype="xsd:string">
+                     Dell is a Company.
+                     Dell builds the Inspiron 620 (implied).
+                  </rdfs:comment>
                </owl:NamedIndividual>
             </builtByCompany>
             <hasGBDiskCapacity rdf:datatype="&xsd;nonNegativeInteger">500</hasGBDiskCapacity>
@@ -707,10 +755,26 @@
             <runsSoftware rdf:resource="#Ubuntu1104" />
             <!-- implies "runsOnDevice" -->
             <runsSoftware rdf:resource="#Ubuntu1110" />
+            <rdfs:comment rdf:datatype="xsd:string">
+               Inspiron 620 is a desktop computer.
+               Inspiron 620 is built by Dell.
+               Inspiron 620 has 500GB hard disk. 
+               Inspiron 620 runs Ubuntu 12.04.
+               Inspiron 620 runs Ubuntu 11.04.
+               Inspiron 620 runs Ubuntu 11.10.
+               Inspiron 620 can communicate with iPhone 4S (implied).
+            </rdfs:comment>
          </owl:NamedIndividual>
       </runsOnDevice>
       <hasVersion>11.10</hasVersion>      
       <newerSoftwareVersionThan rdf:resource="#Ubuntu1104" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Ubuntu 11.10 is an open source software.
+         Ubuntu 11.10 is an OS.
+         Ubuntu 11.10 runs on the Dell Inspiron 620.
+         Ubuntu has version 11.10.
+         Ubuntu 11.10 is newer than Ubuntu 11.04.
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <owl:NamedIndividual rdf:about="#Ubuntu1204">
@@ -718,6 +782,14 @@
       <rdf:type rdf:resource="#OS" />
       <hasVersion>12.04</hasVersion>
       <newerSoftwareVersionThan rdf:resource="#Ubuntu1110" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Ubuntu 12.04 is an open source software.
+         Ubuntu 12.04 is an OS.
+         Ubuntu 12.04 runs on the Dell Inspiron 620 (implied).
+         Ubuntu has version 12.04.
+         Ubuntu 12.04 is newer than Ubuntu 11.10.
+         Ubuntu 12.04 is newer than Ubuntu 11.04 (implied).
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <!-- implies: Ubuntu1204 "newerSoftwareVersionThan" Ubuntu 1104 -->
@@ -725,6 +797,12 @@
       <rdf:type rdf:resource="#OpenSourceSoftware" />
       <rdf:type rdf:resource="#OS" />
       <hasVersion>11.04</hasVersion>
+      <rdfs:comment rdf:datatype="xsd:string">
+         Ubuntu 11.04 is an open source software.
+         Ubuntu 11.04 is an OS.
+         Ubuntu 11.04 runs on the Dell Inspiron 620 (implied).
+         Ubuntu has version 11.04.
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <owl:NamedIndividual rdf:about="#Canonical">
@@ -732,11 +810,14 @@
       <develops rdf:resource="#Ubuntu1104" />
       <develops rdf:resource="#Ubuntu1110" />
       <develops rdf:resource="#Ubuntu1204" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Canonical is an open source company. 
+         Canonical develops Ubuntu 11.04, 11.10, 12.04. 
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <owl:NamedIndividual rdf:about="#iPhone4S">
       <rdf:type rdf:resource="#iPhoneDevice" />
-      <builtByCompany rdf:resource="#Apple" />
       <!-- implies: Dell Inspiron "canCommunicateWith" iPhone4S -->
       <canCommunicateWith rdf:resource="#Dell_Inspiron_620" />
       <runsSoftware rdf:resource="#MobileSafari" />
@@ -745,18 +826,41 @@
             <!-- implies: "builtByCompany" Apple -->
             <rdf:type rdf:resource="#iPhoneDevice" />
             <runsSoftware rdf:resource="#MobileSafari" />
+            <rdfs:comment rdf:datatype="xsd:string">
+               iPhone 4 is an iPhone Device.
+               iPhone 4 is a Mobile (superclass of iPhoneDevice).
+               iPhone 4 is built by Apple (implied).
+               iPhone 4 runs Mobile Safari software.
+            </rdfs:comment>
          </owl:NamedIndividual>
       </newerDeviceVersionThan>
+      <rdfs:comment rdf:datatype="xsd:string">
+         iPhone 4S is an iPhone Device.
+         iPhone 4S is a Mobile (superclass of iPhoneDevice).
+         iPhone 4S is built by Apple (implied).
+         iPhone 4S can communicate with the Dell Inspiron 620.
+         iPhone 4S runs Mobile Safari software.
+         iPhone 4S is a new version of the iPhone 4.
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <owl:NamedIndividual rdf:about="#MobileSafari">
       <rdf:type rdf:resource="#iPhoneApp" />
-      <runsOnDevice rdf:resource="#iPhone4S" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         Mobile Safari is an iPhone App.
+         Mobile Safari runs only on iPhone devices (definition of iPhoneApp).
+         Mobile Safari runs on iPhone 4S (implied).
+         Mobile Safari runs on iPhone 4 (implied).
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <owl:NamedIndividual rdf:about="#MyFirstBlogEntry">
       <rdf:type rdf:resource="#News" />
       <publishedBySource rdf:resource="#JonathansBlog" />
+      <rdfs:comment rdf:datatype="xsd:string">
+         MyFirstBlogEntry is a news item.
+         MyFirstBlogEntry is published by Jonathans Blog.
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <!-- implies: Leicester "withinRegion" Global -->
@@ -768,10 +872,22 @@
             <withinRegion>
                <owl:NamedIndividual rdf:about="#Global">
                   <rdf:type rdf:resource="#Region" />
+                  <rdfs:comment rdf:datatype="xsd:string">
+                     Global is a Region.
+                  </rdfs:comment>
                </owl:NamedIndividual>
             </withinRegion>
+            <rdfs:comment rdf:datatype="xsd:string">
+               England is a Region.
+               England is within Global.
+            </rdfs:comment>
          </owl:NamedIndividual>
       </withinRegion>
+      <rdfs:comment rdf:datatype="xsd:string">
+         Leicester is a Region.
+         Leicester is within England.
+         Leicester is within Global (implied).
+      </rdfs:comment>
    </owl:NamedIndividual>
    
    <owl:NamedIndividual rdf:about="#LeicesterMercury">
@@ -780,8 +896,16 @@
       <hasCorrespondingWebsite>
          <owl:NamedIndividual rdf:about="#ThisIsLeicestershireWebsite">
             <rdf:type rdf:resource="#NewsWebsite" />
+            <rdfs:comment rdf:datatype="xsd:string">
+               ThisIsLeicestershireWebsite is a news website.
+            </rdfs:comment>
          </owl:NamedIndividual>
       </hasCorrespondingWebsite>
+      <rdfs:comment rdf:datatype="xsd:string">
+         Leicester Mercury is a newspaper.
+         Leicester Mercury covers the region of Leicester.
+         Leicester Mercury has corresponding website ThisIsLeicestershireWebsite.
+      </rdfs:comment>
    </owl:NamedIndividual>
    
 </rdf:RDF>
